@@ -1,0 +1,91 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;}
+.tablet{
+    width:100%;
+    height:100%;
+    position:relative;
+    background:url('https://i.pinimg.com/736x/86/51/85/86518512a4b48af184349afe8bee984b.jpg') center/cover no-repeat;
+}
+
+/* STATUS BAR */
+.status-bar{
+    height:30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 12px;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(15px);
+    position:absolute;
+    top:0;
+    width:100%;
+    z-index:10;
+    border-top-left-radius:30px;
+    border-top-right-radius:30px;
+}
+.status-right{display:flex;align-items:center;gap:6px;}
+.status-right img{width:16px;height:16px;}
+.battery-capsule{position:relative;min-width:38px;height:18px;border-radius:999px;background:rgba(128,128,128,.3);font-size:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.battery-fill{position:absolute;left:0;top:0;height:100%;width:0%;background:#4cd964;}
+.battery-capsule span{position:relative;z-index:1;}
+
+/* CLOCK */
+.main-clock{position:absolute;top:50px;left:50%;transform:translateX(-50%);font-size:64px;font-weight:700;color:#fff;text-shadow:0 0 10px rgba(0,0,0,0.6);}
+
+/* SEARCH */
+.search-bar{position:absolute;top:130px;left:50%;transform:translateX(-50%);width:80%;height:45px;background:rgba(255,255,255,0.9);border-radius:25px;display:flex;align-items:center;padding:0 15px;font-size:16px;color:#000;box-shadow:0 4px 12px rgba(0,0,0,0.25);}
+.search-bar input{flex:1;border:none;outline:none;background:transparent;font-size:16px;}
+.search-mic{width:28px;height:28px;cursor:pointer;margin-left:10px;}
+
+/* CALCULATOR ICON */
+.calculator-wrapper{position:absolute;top:210px;left:10px;text-align:center;}
+.calculator-icon{width:70px;height:70px;border-radius:10px;background:rgba(255,255,255,.15);box-shadow:0 4px 10px rgba(0,0,0,.3);display:flex;justify-content:center;align-items:center;cursor:pointer;transition:0.2s;}
+.calculator-icon img{width:80%;height:80%;object-fit:contain;border-radius:10px;}
+.calculator-wrapper div{color:white;font-size:14px;margin-top:10px;}
+
+/* DOCK ICONS */
+.bottom-icons{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);display:flex;justify-content:space-between;width:90%;max-width:500px;z-index:5;}
+.bottom-icons .icon{
+    width:60px;
+    height:60px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.15);
+    box-shadow:0 4px 10px rgba(0,0,0,.25);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition:0.25s;
+    opacity:0;
+    transform:translateY(20px);
+    animation: iconFadeIn 0.5s forwards;
+}
+.bottom-icons .icon:nth-child(1){animation-delay:0.1s;}
+.bottom-icons .icon:nth-child(2){animation-delay:0.2s;}
+.bottom-icons .icon:nth-child(3){animation-delay:0.3s;}
+.bottom-icons .icon:nth-child(4){animation-delay:0.4s;}
+.bottom-icons .icon:nth-child(5){animation-delay:0.5s;}
+.bottom-icons .icon:hover{transform:scale(1.2);background:rgba(255,255,255,.3);}
+.bottom-icons .icon img{width:90%;height:90%;object-fit:contain;border-radius:24px;}
+
+/* APP WINDOW */
+.app-window{position:absolute;inset:0;background:#f2f2f7;z-index:10;display:none;flex-direction:column;animation: fadeIn 0.3s ease;}
+.app-header{height:50px;background:#fff;display:flex;align-items:center;padding:0 10px;box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+.app-title{flex:1;text-align:center;font-weight:600;}
+.capsule{padding:5px 15px;background: rgba(255, 59, 48, .15);backdrop-filter: blur(10px);color: #ff3b30;border-radius: 999px;cursor:pointer;transition:.2s;font-size:14px;}
+.capsule:active{transform:scale(0.95);}
+.calc-container{flex:1;display:flex;flex-direction:column;padding:15px;justify-content:flex-end;}
+.calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:10px;}
+#calculatorApp button{height:70px;font-size:26px;border:none;border-radius:18px;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.2),0 4px 10px rgba(0,0,0,.15);}
+button.digit{background:#d4d4d2;color:#000;}
+button.operator{background:#505050;color:#fff;}
+button.equals{background:#ff9500;color:#fff;}
+button.clear{background:#ff3b30;color:#fff;}
+button:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.2);}
+
+/* NOTES APP */
+#notesApp textarea{flex:1;width:100%;padding:15px;font-size:18px;border:none;outline:none;resize:none;background:#fff;border-radius:12px;}
+
+/* ANIMATIONS */
+@keyframes fadeIn{from{opacity:0;transform:scale(0.98);}to{opacity:1;transform:scale(1);}}
+@keyframes iconFadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
